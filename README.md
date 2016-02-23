@@ -7,7 +7,7 @@ A less is more approach to email using [Nylas N1](https://nylas.com/n1).
 
 ## Installation
 
-![Download less-is-more](https://github.com/P0WW0W/less-is-more/archive/master.zip)
+[Download less-is-more](https://github.com/P0WW0W/less-is-more/archive/master.zip)
 
 ##### Step 1
 Unzip `less-is-more-master.zip`.
@@ -24,7 +24,7 @@ If you need to get back to the package files, they're located at `/Users/<yourUs
 
 
 ### Credits
-A special thank you to Jamie Wilson (jamie@jamiewilson.io) for creating the foundation for this theme. His Darkside Nylas N1 theme can be found at ![Darkside Theme](http://www.jamiewilson.io/darkside)
+A special thank you to Jamie Wilson (jamie@jamiewilson.io) for creating the foundation for this theme. His Darkside Nylas N1 theme can be found at [Darkside Theme](http://www.jamiewilson.io/darkside)
 
 ### Feedback
 Don't hesistate to get in touch with comments, feedback, issues, whatever. I can be contacted at [alexander.adkins@icloud.com](mailto:alexander.adkins@icloud.com?subject=Re: less-is-more).
