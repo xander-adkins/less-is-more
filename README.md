@@ -3,7 +3,7 @@ A less is more approach to email using [Nylas N1](https://nylas.com/n1).
 
 [![Default Theme](./images/default.png)](./images/default.png)
 
-[More about less-is-more theme at →](http://www.alexanderadkins.com/less-is-more)
+[More about less-is-more theme at →](http://www.alexanderadkins.com/projects/less-is-more)
 
 ## Installation
 
