@@ -1,9 +1,9 @@
 # Less is More
 A less is more approach to email using [Nylas N1](https://nylas.com/n1).
 
-[![Default Theme](./images/default.png)](./images/default.png)
+[![Default Theme](./images/default.jpg)](./images/default.jpg)
 
-[More about less-is-more theme at →](http://www.alexanderadkins.com/less-is-more)
+[More about less-is-more theme at →](http://www.alexanderadkins.com/projects/less-is-more)
 
 ## Installation
 
