@@ -5,7 +5,7 @@
 // Default
 @less-background: #FFFFFF;
 @less-text: #566C75;
-@active: #990099;
+@active: red;
 @sidebar-text: lighten(@less-text, 20%);
 
 //====================================================
@@ -551,7 +551,7 @@ input[type="email"]:focus {
 
 
 .tokenizing-field .token.invalid {
-  border-bottom: 1px solid @active;
+  border: 1px solid lighten(@active,25%);
 }
 
 .tokenizing-field .token.selected,
@@ -563,7 +563,12 @@ input[type="email"]:focus {
 
 .tokenizing-field .token.invalid.selected,
 .tokenizing-field .token.invalid.dragging {
-  background: @active;
+  background: lighten(@active,25%);
+}
+
+.tokenizing-field .tokenizing-field-input input[type="text"],
+.tokenizing-field .tokenizing-field-input input[type="text"]:focus {
+  border-bottom: none !important;
 }
 
 textarea:focus,
@@ -577,6 +582,6 @@ input[type="email"]:focus {
 }
 
 .btn.btn-emphasis {
-  background: @less-text;
-  border: 1px solid darken(@less-text, 10%);
+  background: lighten(@less-text, 30%) !important;
+  border: 1px solid lighten(@less-text, 25%);
 }
