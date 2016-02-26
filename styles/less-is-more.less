@@ -7,6 +7,8 @@
 @less-text: #566C75;
 @active: red;
 @sidebar-text: lighten(@less-text, 20%);
+@background-gradient: linear-gradient(to top, @less-background,
+@less-background);
 
 //====================================================
 //  Base Overwrites
@@ -30,6 +32,7 @@
 
 .sheet-toolbar-container [data-column='0'] .item-container {
   justify-content: flex-end;
+  background-color: @less-background;
 }
 
 .sheet-toolbar .btn.btn-toolbar.item-compose {
@@ -42,6 +45,12 @@
 
 .sheet-toolbar .btn.btn-toolbar.item-compose img.content-mask {
   background-color: @sidebar-text;
+}
+
+.sheet-toolbar .btn-toolbar {
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
 .btn {
@@ -263,6 +272,12 @@ body.is-blurred .list-container .list-item.focused,
   linear-gradient(@less-background, @less-background);
 }
 
+.thread-list .list-item .list-column-HoverActions .action.action-snooze {
+  background: url("../static/images/thread-list-quick-actions/ic-quickaction-snooze@2x.png")
+  center no-repeat,
+  linear-gradient(@less-background, @less-background);
+}
+
 .thread-list .thread-icon.thread-icon-star, .draft-list .thread-icon.thread-icon-star {
   -webkit-filter: grayscale(100%);
 }
@@ -298,9 +313,13 @@ body.is-blurred .list-container .list-item.focused,
   -webkit-filter: none;
 }
 
-.empty-state .generic .message {
+.empty-state .generic .message { // styles empty state message
   font-size: 18px;
   line-height: 1.2;
+}
+
+.empty-state .quotes img { //removes empty state background image
+  opacity: 0;
 }
 
 .thread-list.handler-split .list-item.selected .thread-icon,
@@ -365,6 +384,7 @@ body.is-blurred .list-container .list-item.focused,
 
 .flexbox-handle-horizontal div {
   border-right: none;
+  box-shadow: none;
 }
 
 //====================================================
@@ -472,6 +492,12 @@ input[type="email"]:focus {
 .menu .item.selected, .menu .item:active,
 .search-container .content-container .item.selected {
   background: @less-text;
+}
+
+body.is-blurred .search-bar .menu .header-container input,
+body.is-blurred .sheet-toolbar-container .btn.btn-toolbar,
+.search-bar .menu .header-container input, {
+  box-shadow: none;
 }
 
 //====================================================
