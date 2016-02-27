@@ -628,3 +628,23 @@ input[type="email"]:focus {
 .button-dropdown .primary-item, .button-dropdown .only-item {
   box-shadow: none;
 }
+
+.button-dropdown.bordered .primary-item,
+.button-dropdown:hover .primary-item,
+.button-dropdown.bordered .only-item,
+.button-dropdown:hover .only-item,
+.button-dropdown .secondary-picker {
+  background-color: lighten(@less-text, 25%);
+}
+
+.button-dropdown.btn-emphasis .primary-item,
+.button-dropdown.btn-emphasis .secondary-picker,
+.button-dropdown.btn-emphasis .only-item
+.button-dropdown.btn-emphasis .primary-item:active,
+.button-dropdown.btn-emphasis .secondary-picker:active,
+.button-dropdown.btn-emphasis .only-item:active {
+  background-color: lighten(@less-text, 25%);
+  background: lighten(@less-text, 25%);
+  box-shadow: none;
+  border: 1px solid lighten(@less-text, 25%);
+}
