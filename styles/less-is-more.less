@@ -571,6 +571,19 @@ body.is-blurred .sheet-toolbar-container .btn.btn-toolbar,
 //  Composer
 //====================================================
 
+.sheet-toolbar-container,
+body.is-blurred .sheet-toolbar-container {
+  background-image: -webkit-linear-gradient(top, @less-background, @less-background);
+  box-shadow: none;
+}
+
+.composer-full-window .composer-inner-wrap .composer-action-bar-wrap {
+  background-color: @less-background;
+  border-top: none;
+  box-shadow: none;
+  padding-bottom: .8em;
+}
+
 .composer-inner-wrap .compose-subject-wrap {
   border-bottom: none;
 }
@@ -610,4 +623,8 @@ input[type="email"]:focus {
 .btn.btn-emphasis {
   background: lighten(@less-text, 30%) !important;
   border: 1px solid lighten(@less-text, 25%);
+}
+
+.button-dropdown .primary-item, .button-dropdown .only-item {
+  box-shadow: none;
 }

@@ -2,7 +2,7 @@
   "name": "less-is-more",
   "displayName": "Less is More",
   "theme": "less-is-more",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A less is more approach to email in Nylas N1",
   "license": "MIT",
   "engines": {
