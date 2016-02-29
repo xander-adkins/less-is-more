@@ -620,21 +620,8 @@ input[type="email"]:focus {
   min-width: 30px;
 }
 
-.btn.btn-emphasis {
-  background: lighten(@less-text, 30%) !important;
-  border: 1px solid lighten(@less-text, 25%);
-}
-
 .button-dropdown .primary-item, .button-dropdown .only-item {
   box-shadow: none;
-}
-
-.button-dropdown.bordered .primary-item,
-.button-dropdown:hover .primary-item,
-.button-dropdown.bordered .only-item,
-.button-dropdown:hover .only-item,
-.button-dropdown .secondary-picker {
-  background-color: lighten(@less-text, 25%);
 }
 
 .button-dropdown.btn-emphasis .primary-item,
@@ -642,9 +629,21 @@ input[type="email"]:focus {
 .button-dropdown.btn-emphasis .only-item
 .button-dropdown.btn-emphasis .primary-item:active,
 .button-dropdown.btn-emphasis .secondary-picker:active,
-.button-dropdown.btn-emphasis .only-item:active {
-  background-color: lighten(@less-text, 25%);
-  background: lighten(@less-text, 25%);
+.button-dropdown.btn-emphasis .only-item:active,
+.button-dropdown.bordered .primary-item,
+.button-dropdown:hover .primary-item,
+.button-dropdown.bordered .only-item,
+.button-dropdown:hover .only-item,
+.button-dropdown .secondary-picker,
+.btn.btn-emphasis {
+  background-color: lighten(@less-text, 30%);
+  background: lighten(@less-text, 30%);
   box-shadow: none;
   border: 1px solid lighten(@less-text, 25%);
+}
+
+.button-dropdown .primary-item img.content-mask,
+.button-dropdown .only-item img.content-mask,
+.button-dropdown .secondary-picker img.content-mask {
+  background-color: @less-background;
 }
