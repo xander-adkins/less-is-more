@@ -1,7 +1,7 @@
 # Less is More
 A less is more approach to email using [Nylas N1](https://nylas.com/n1).
 
-[![Message](./images/message.jpg)](./images/composer.jpg)
+[![Message](./images/composer.jpg)](./images/composer.jpg)
 
 [More images can be found at →](http://www.alexanderadkins.com/projects/less-is-more)
 
