@@ -27,4 +27,4 @@ If you need to get back to the package files, they're located at `/Users/<yourUs
 A special thank you to Jamie Wilson (jamie@jamiewilson.io) for creating the foundation for this theme. His Darkside Nylas N1 theme can be found at [Darkside Theme](http://www.jamiewilson.io/darkside)
 
 ### Feedback
-Don't hesistate to get in touch with comments, feedback, issues, whatever. I can be contacted at [alexander.adkins@icloud.com](mailto:alexander.adkins@icloud.com?subject=Re: less-is-more).
+Don't hesistate to get in touch with comments, feedback, issues, whatever. I can be contacted at [hello@alexanderadkins.com](mailto:hello@alexanderadkins.com?subject=Re: less-is-more).
