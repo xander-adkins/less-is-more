@@ -2,7 +2,6 @@
 //  Color Variables
 //====================================================
 
-// Default
 @less-background: #FFFFFF;
 @less-text: #566C75;
 @active: red;
@@ -484,9 +483,11 @@ input[type="url"] {
 
 textarea:focus,
 input[type="text"]:focus,
-input[type="email"]:focus {
+input[type="email"]:focus,
+.search-bar .menu .header-container input:focus {
   border: none !important;
   border-bottom: 1px solid @less-text !important;
+  box-shadow: none;
 }
 
 //====================================================
