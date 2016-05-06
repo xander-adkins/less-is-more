@@ -2,17 +2,17 @@
 //  Color Variables
 //====================================================
 
-@less-background: #FFFFFF;
-@less-text: #566C75;
-@danger: #FF5F56;
-@minimize: #FBD852;
-@maximize: #8DD07D;
-@swipe-archive: @maximize;
-@swipe-snooze: @minimize;
-@swipe-trash: @danger;
-@invalid: @danger;
-@sidebar-text: lighten(@less-text, 20%);
-@background-gradient: @less-background;
+@less-background:       #FFFFFF;
+@less-text:             #566C75;
+@minimize:              #FBD852;
+@maximize:              #8DD07D;
+@danger:                #FF5F56;
+@swipe-archive:         @maximize;
+@swipe-snooze:          @minimize;
+@swipe-trash:           @danger;
+@invalid:               @danger;
+@sidebar-text:          lighten(@less-text, 20%);
+@background-gradient:   @less-background;
 
 
 //====================================================
@@ -26,7 +26,7 @@
 .preferences-sidebar,
 .preferences-content,
 .column-DraftList {
-  padding: 5em 2em 2em;
+  padding: 5em 0em 2em 2em;
   background: @less-background;
 }
 
@@ -146,6 +146,7 @@
 .account-sidebar .item {
   font-size: 13px;
   font-weight: 400;
+  padding-left: 20px;
 }
 
 .account-sidebar .heading {
@@ -292,7 +293,6 @@ body.is-blurred .list-container .list-item.focused,
   -webkit-filter: grayscale(100%);
 }
 
-
 .thread-list .focused .thread-icon,
 .draft-list .focused .thread-icon,
 .thread-list .focused .draft-icon,
@@ -338,7 +338,9 @@ body.is-blurred .list-container .list-item.focused,
   -webkit-filter: none;
 }
 
-
+.nylas-outline-view .item .icon img {
+  display: none;
+}
 
 //====================================================
 //  Message List
