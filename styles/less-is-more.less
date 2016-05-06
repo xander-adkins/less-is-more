@@ -43,7 +43,6 @@
 //====================================================
 
 .column-RootSidebar,
-.column-ThreadList,
 .column-MessageList,
 .column-MessageListSidebar,
 .preferences-sidebar,
@@ -88,6 +87,7 @@
   background: transparent;
   box-shadow: none;
 }
+
 
 //====================================================
 //  Window Controls
@@ -139,6 +139,7 @@
     background-color: fade(@sidebar-text, 50%);
   }
 }
+
 
 //====================================================
 //  Sidebar & Account Switcher
@@ -231,12 +232,19 @@
       -0.5px 0 0 @less-text;
   }
 
+
 //====================================================
 //  Thread List
 //====================================================
 
+.column-ThreadList {
+  padding: 5em 2em 1em;
+  background-color: @less-background;
+}
+
 .column-ThreadList,
-.list-container .list-item {
+.list-container .list-item,
+.list-container .list-item:hover {
   cursor: pointer !important;
   box-sizing: border-box;
   border: 0 !important;
@@ -245,18 +253,25 @@
 }
 
 body.is-blurred .list-container .list-item.focused,
-.list-container .list-item.focused,
-.thread-list.handler-split .list-item.selected, {
-  background: @less-highlight;
+body.is-blurred .list-container .list-item.selected,
+body.is-blurred .thread-list.handler-split .list-item.selected {
+  background-color: @less-highlight;
   color: darken(@less-text, 50%);
   font-weight: bold;
 }
 
+.toolbar-ThreadList .selection-bar .inner {
+  background-color: @less-background;
+}
+
 .list-container .list-item:hover {
-  background-color: @less-highlight;
+  background: @less-highlight;
   color: @less-text;
 }
 
+.thread-list .list-item:hover .list-column-HoverActions .inner {
+  background-image: -webkit-linear-gradient(left, fade(@less-highlight, 0%) 0%, @less-highlight 40%, @less-highlight 100%);
+}
 
 .thread-list .list-column,
 .draft-list .list-column,
@@ -283,17 +298,17 @@ body.is-blurred .list-container .list-item.focused,
 
 .thread-list .list-item .list-column-HoverActions .action.action-trash {
   background: url("../static/images/thread-list-quick-actions/ic-quick-button-trash@2x.png")
-  center no-repeat, transparent;
+  center no-repeat, @less-highlight;
 }
 
 .thread-list .list-item .list-column-HoverActions .action.action-archive {
   background: url("../static/images/thread-list-quick-actions/ic-quick-button-archive@2x.png")
-  center no-repeat, transparent;
+  center no-repeat, @less-highlight;
 }
 
 .thread-list .list-item .list-column-HoverActions .action.action-snooze {
   background: url("../static/images/thread-list-quick-actions/ic-quickaction-snooze@2x.png")
-  center no-repeat, transparent;
+  center no-repeat, @less-highlight;
 }
 
 .thread-list .thread-icon.thread-icon-star, .draft-list .thread-icon.thread-icon-star {
@@ -311,8 +326,6 @@ body.is-blurred .list-container .list-item.focused,
 
 .thread-list .focused .mail-label,
 .draft-list .focused .mail-label {
-  -webkit-filter: brightness(100%) !important;
-  box-shadow: inset 0 0 0 1px fade(@less-text, 50%) !important;
   background-color: @less-highlight !important;
   color: @less-background !important;
 }
@@ -348,6 +361,7 @@ body.is-blurred .list-container .list-item.focused,
 .nylas-outline-view .item .icon img {
   display: none;
 }
+
 
 //====================================================
 //  Message List
@@ -391,6 +405,7 @@ body.is-blurred .list-container .list-item.focused,
   cursor: pointer !important;
 }
 
+
 //====================================================
 //  Message List Sidebar
 //====================================================
@@ -416,6 +431,7 @@ body.is-blurred .list-container .list-item.focused,
   color: @less-text;
 }
 
+
 //====================================================
 //  Scrollbars & Resize Handles
 //====================================================
@@ -430,6 +446,7 @@ body.is-blurred .list-container .list-item.focused,
   border-right: none;
   box-shadow: none;
 }
+
 
 //====================================================
 //  Swiping
@@ -460,6 +477,7 @@ body.is-blurred .list-container .list-item.focused,
     background: saturate(@swipe-trash, 10%);
   }
 }
+
 
 //====================================================
 //  Toolbars
@@ -498,6 +516,7 @@ body.is-blurred .list-container .list-item.focused,
   min-height: 50px;
 }
 
+
 //====================================================
 //  Preferences
 //====================================================
@@ -532,9 +551,6 @@ body.is-blurred .list-container .list-item.focused,
   }
 }
 
-.preferences-content {
-
-}
 
 //====================================================
 //  Form Inputs
@@ -572,6 +588,7 @@ input[type="email"]:focus,
   margin-right: 7.5px;
 }
 
+
 //====================================================
 //  Menu Dropdowns
 //====================================================
@@ -586,6 +603,7 @@ body.is-blurred .sheet-toolbar-container .btn.btn-toolbar,
 .search-bar .menu .header-container input, {
   box-shadow: none;
 }
+
 
 //====================================================
 //  Notifications
@@ -612,6 +630,7 @@ body.is-blurred .sheet-toolbar-container .btn.btn-toolbar,
   border: none;
 }
 
+
 //====================================================
 //  Feedback Button
 //====================================================
@@ -634,6 +653,7 @@ body.is-blurred .sheet-toolbar-container .btn.btn-toolbar,
   opacity: 1;
 }
 
+
 //====================================================
 //  Drafts
 //====================================================
@@ -653,6 +673,7 @@ body.is-blurred .sheet-toolbar-container .btn.btn-toolbar,
 .empty-state {
   top: -50px;
 }
+
 
 //====================================================
 //  Composer
@@ -674,7 +695,6 @@ body.is-blurred .sheet-toolbar-container {
 .composer-inner-wrap .compose-subject-wrap {
   border-bottom: none;
 }
-
 
 .tokenizing-field .token.invalid {
   border: 1px solid lighten(@danger,25%);
