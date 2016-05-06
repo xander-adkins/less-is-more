@@ -4,10 +4,16 @@
 
 @less-background: #FFFFFF;
 @less-text: #566C75;
-@active: red;
+@danger: #FF5F56;
+@minimize: #FBD852;
+@maximize: #8DD07D;
+@swipe-archive: @maximize;
+@swipe-snooze: @minimize;
+@swipe-trash: @danger;
+@invalid: @danger;
 @sidebar-text: lighten(@less-text, 20%);
-@background-gradient: linear-gradient(to top, @less-background,
-@less-background);
+@background-gradient: @less-background;
+
 
 //====================================================
 //  Base Overwrites
@@ -65,6 +71,14 @@
 //  Window Controls
 //====================================================
 
+.toolbar-window-controls {
+  display: flex;
+  margin-top: 9px;
+  margin-left: 7px;
+  min-width: 72px;
+  width: 72px;
+}
+
 .toolbar-window-controls button {
   background-color: @sidebar-text;
   background-image: none !important;
@@ -85,7 +99,7 @@
 }
 
 .toolbar-window-controls .close {
-  background-color: #FC625D;
+  background-color: @danger;
   background-image: none;
   &:hover {
     -webkit-filter: brightness(125%);
@@ -93,7 +107,7 @@
 }
 
 .toolbar-window-controls .minimize {
-  background-color: #FEC041;
+  background-color: @minimize;
   background-image: none;
   &:hover {
     -webkit-filter: brightness(125%);
@@ -101,7 +115,7 @@
 }
 
 .toolbar-window-controls .maximize {
-  background-color: #35CA4A;
+  background-color: @maximize;
   background-image: none;
   &:hover {
     -webkit-filter: brightness(125%);
@@ -187,9 +201,6 @@
   transform-origin: 2px;
 }
 
-.scroll-region .scroll-region-content {
-  padding-left: 14px;
-}
 
 //====================================================
 //  Sidebar Count Badges
@@ -436,10 +447,6 @@ body.is-blurred .list-container .list-item.focused,
   padding-bottom: 100px;
 }
 
-.preferences-wrap .container-preference-tabs .preferences-tabs {
-  padding-top: 50px;
-}
-
 .preferences-wrap .preferences-sidebar {
   background: @less-background;
   border-right: none;
@@ -492,6 +499,11 @@ input[type="email"]:focus,
   border: none !important;
   border-bottom: 1px solid @less-text !important;
   box-shadow: none;
+}
+
+.search-bar {
+  width: 400px;
+  margin-right: 7.5px;
 }
 
 //====================================================
@@ -599,7 +611,7 @@ body.is-blurred .sheet-toolbar-container {
 
 
 .tokenizing-field .token.invalid {
-  border: 1px solid lighten(@active,25%);
+  border: 1px solid lighten(@danger,25%);
 }
 
 .tokenizing-field .token.selected,
@@ -611,7 +623,7 @@ body.is-blurred .sheet-toolbar-container {
 
 .tokenizing-field .token.invalid.selected,
 .tokenizing-field .token.invalid.dragging {
-  background: lighten(@active,25%);
+  background: lighten(@danger,25%);
 }
 
 .tokenizing-field .tokenizing-field-input input[type="text"],
