@@ -47,7 +47,6 @@
 .column-MessageList,
 .column-MessageListSidebar,
 .preferences-sidebar,
-.preferences-content,
 .column-DraftList {
   padding: 5em 0em 2em 2em;
   background: @less-background;
@@ -503,6 +502,11 @@ body.is-blurred .list-container .list-item.focused,
 //  Preferences
 //====================================================
 
+.preferences-wrap .container-preference-tabs .preferences-tabs {
+  padding-top: 40px;
+  background-color: @less-background;
+}
+
 .preferences-wrap .preferences-content > .scroll-region-content {
   padding-bottom: 100px;
 }
@@ -528,7 +532,9 @@ body.is-blurred .list-container .list-item.focused,
   }
 }
 
+.preferences-content {
 
+}
 
 //====================================================
 //  Form Inputs
