@@ -2,18 +2,17 @@
 //  Less Is More Index
 //====================================================
 //  Theme Variables
-//  Base Overwrites
 //  Window Controls
 //  Sidebar & Account Switcher
 //  Sidebar Count Badges
+//  Scrollbars & Resize Handles
 //  Thread List
 //  Message List
 //  Message List Sidebar
-//  Scrollbars & Resize Handles
 //  Swiping
-//  Toolbars
+//  Sheet Toolbars
 //  Preferences
-//  Form Inputs
+//  Form Inputs & Search Bar
 //  Menu Dropdowns
 //  Notifications
 //  Feedback Button
@@ -25,23 +24,25 @@
 //  Theme Variables
 //====================================================
 
-@less-background:       #FFFFFF;
-@less-text:             #566C75;
-@less-highlight:        #FAFAFA;
-@minimize:              #FBD852;
-@maximize:              #8DD07D;
-@danger:                #FF5F56;
-@swipe-archive:         @maximize;
-@swipe-snooze:          @minimize;
-@swipe-trash:           @danger;
-@invalid:               @danger;
-@sidebar-text:          lighten(@less-text, 20%);
+@less-background:       #FFFFFF; //white
+@less-text:             #566C75; //gray
+@less-highlight:        #FAFAFA; //lightest-gray
+@minimize:              #FBD852; //yellow
+@maximize:              #8DD07D; //green
+@close:                 #FF5F56; //red
+@swipe-archive:         @maximize; //green
+@swipe-snooze:          @minimize; //yellow
+@swipe-trash:           @close; //red
+@invalid:               @close; //red
+@sidebar-text:          lighten(@less-text, 20%); //light-gray
 
 
 //====================================================
-//  Base Overwrites
+//  Window Controls
 //====================================================
 
+// Padding and Color for Account Sidebar, Message List, Message Sidebar,
+// Preference Sidebar and Draft List.
 .column-RootSidebar,
 .column-MessageList,
 .column-MessageListSidebar,
@@ -51,56 +52,7 @@
   background: @less-background;
 }
 
-.column-RootSidebar,
-.account-sidebar {
-  background-color: @less-background;
-}
-
-.sheet-toolbar-container [data-column='0'] .item-container {
-  justify-content: flex-end;
-  background-color: @less-background;
-}
-
-.sheet-toolbar .btn.btn-toolbar.item-compose {
-  margin-right: 0;
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  order: 101;
-}
-
-.sheet-toolbar .btn.btn-toolbar.item-compose img.content-mask {
-  background-color: @sidebar-text;
-}
-
-.sheet-toolbar .btn-toolbar {
-  background: transparent;
-  border: none;
-  box-shadow: none;
-}
-
-.btn {
-  border-radius: 0px;
-  border: 0;
-  color: @sidebar-text;
-  cursor: pointer !important;
-  background: transparent;
-  box-shadow: none;
-}
-
-
-//====================================================
-//  Window Controls
-//====================================================
-
-.toolbar-window-controls {
-  display: flex;
-  margin-top: 9px;
-  margin-left: 7px;
-  min-width: 72px;
-  width: 72px;
-}
-
+// Window Control Button transforms
 .toolbar-window-controls button {
   background-color: @sidebar-text;
   background-image: none !important;
@@ -114,30 +66,33 @@
   transition-property: border-radius, opacity, transform;
 }
 
+// Window Control Button transforms on hover
 .toolbar-window-controls:hover button {
   opacity: 1;
   border-radius: 50%;
   transform: scaleY(1);
 }
 
+// Window Control close Button color
 .toolbar-window-controls .close {
-  background-color: @danger;
+  background-color: @close;
 }
 
+// Window Control minimize Button color
 .toolbar-window-controls .minimize {
   background-color: @minimize;
 }
 
+// Window Control maximize Button color
 .toolbar-window-controls .maximize {
   background-color: @maximize;
 }
 
-.is-blurred {
-  .toolbar-window-controls .close,
-  .toolbar-window-controls .minimize,
-  .toolbar-window-controls .maximize {
-    background-color: fade(@sidebar-text, 50%);
-  }
+// Remove underline and dropshadow on compose button
+.sheet-toolbar .btn-toolbar {
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
 
@@ -145,72 +100,72 @@
 //  Sidebar & Account Switcher
 //====================================================
 
-.account-switcher {
-  top: 10px;
+// Change default account sidebar color from default gray to white
+.column-RootSidebar,
+.account-sidebar {
+  background-color: @less-background;
 }
 
-.account-sidebar .item,
-.account-sidebar .item.selected {
-  color: @sidebar-text;
-}
-
+// Account sidebar label controls
 .account-sidebar .item {
-  font-size: 13px;
+  color: @sidebar-text;
+  font-size: 14px;
   font-weight: 400;
   padding-left: 20px;
+  margin-bottom: 6px;
 }
 
+// Account sidebar headings overrides
 .account-sidebar .heading {
   font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: fade(@sidebar-text, 50%);
-  margin-bottom: 8px;
+  color: @sidebar-text;
+  margin-bottom: 12px;
 }
 
+// Keep account sidebar icons from flashing on click
 .account-sidebar .item img.content-mask,
 .account-sidebar .add-item-button img {
   background-color: transparent;
   -webkit-mask-image: none;
 }
 
+// Account sidebar selected label overrides
 .account-sidebar {
+  // Fix padding jump
   .item .name {
     padding-left: 0;
     margin-left: -10px;
   }
+  // Change label color and font weight
   .item.selected {
-    background: @less-background;
+    background: transparent;
     color: @less-text;
+    font-weight: 600;
   }
 }
 
-.account-sidebar .item.selected img.content-mask {
-  background-color: transparent;
+// Account sidebar label triangle bullet overrides
+.disclosure-triangle {
+  padding-top: 7px;
+  & div {
+    border-left-color: @sidebar-text;
+    border-top-width: 3px;
+    border-bottom-width: 3px;
+    border-left-width: 5px;
+    transform-origin: 2px;
+  }
 }
 
-.nylas-outline-view .item-container.dropping {
-  background: @less-highlight;
+// Remove default nylas icon images
+.nylas-outline-view .item .icon img {
+  display: none;
 }
 
-.nylas-outline-view .item-container.dropping .item {
-  color: @less-text;
-}
-
-.nylas-outline-view .item-container.dropping .item img.content-mask {
-  background-color: @less-text;
-}
-
+// Account sidebar add folder icon color overrides
 .nylas-outline-view .heading .add-item-button img {
-  background: fade(@sidebar-text, 50%);
-}
-
-.disclosure-triangle div {
-  border-left-color: fade(@sidebar-text, 50%);
-  border-top-width: 3px;
-  border-bottom-width: 3px;
-  border-left-width: 5px;
-  transform-origin: 2px;
+  background: @sidebar-text;
 }
 
 
@@ -218,217 +173,10 @@
 //  Sidebar Count Badges
 //====================================================
 
+// Sidebar unread email count color overrides
 .nylas-outline-view .item .item-count-box.alt-count {
   background: @less-text;
   color: @less-background;
-}
-
-.nylas-outline-view .item .item-count-box {
-    color: @less-text;
-    box-shadow:
-      0 0.5px 0 @less-text,
-      0 -0.5px 0 @less-text,
-      0.5px 0 0 @less-text,
-      -0.5px 0 0 @less-text;
-  }
-
-
-//====================================================
-//  Thread List
-//====================================================
-
-.column-ThreadList {
-  padding: 5em 2em 1em;
-  background-color: @less-background;
-}
-
-.column-ThreadList,
-.list-container .list-item,
-.list-container .list-item:hover {
-  cursor: pointer !important;
-  box-sizing: border-box;
-  border: 0 !important;
-  background-color: @less-background;
-  color: @less-text;
-}
-
-body.is-blurred .list-container .list-item.focused,
-body.is-blurred .list-container .list-item.selected,
-body.is-blurred .thread-list.handler-split .list-item.selected {
-  background-color: @less-highlight;
-  color: darken(@less-text, 50%);
-  font-weight: bold;
-}
-
-.toolbar-ThreadList .selection-bar .inner {
-  background-color: @less-background;
-}
-
-.list-container .list-item:hover {
-  background: @less-highlight;
-  color: @less-text;
-}
-
-.thread-list .list-item:hover .list-column-HoverActions .inner {
-  background-image: -webkit-linear-gradient(left, fade(@less-highlight, 0%) 0%, @less-highlight 40%, @less-highlight 100%);
-}
-
-.thread-list .list-column,
-.draft-list .list-column,
-.list-container .list-item.focused .list-column {
-  border: 0 !important;
-}
-
-.list-tabular .list-tabular-item.keyboard-cursor .list-column:first-child {
-  border: 0 !important;
-}
-
-.thread-list .thread-icon.thread-icon-unread,
-.draft-list .thread-icon.thread-icon-unread {
-  background-color: @less-text;
-  background-image: none;
-  border-radius: 50%;
-  height: 10px;
-  width: 10px;
-  margin-top: 8px;
-  margin-left: 7px;
-  margin-right: 13px;
-  margin-bottom: 8px;
-}
-
-.thread-list .list-item .list-column-HoverActions .action.action-trash {
-  background: url("../static/images/thread-list-quick-actions/ic-quick-button-trash@2x.png")
-  center no-repeat, @less-highlight;
-}
-
-.thread-list .list-item .list-column-HoverActions .action.action-archive {
-  background: url("../static/images/thread-list-quick-actions/ic-quick-button-archive@2x.png")
-  center no-repeat, @less-highlight;
-}
-
-.thread-list .list-item .list-column-HoverActions .action.action-snooze {
-  background: url("../static/images/thread-list-quick-actions/ic-quickaction-snooze@2x.png")
-  center no-repeat, @less-highlight;
-}
-
-.thread-list .thread-icon.thread-icon-star, .draft-list .thread-icon.thread-icon-star {
-  -webkit-filter: grayscale(100%);
-}
-
-.thread-list .focused .thread-icon,
-.draft-list .focused .thread-icon,
-.thread-list .focused .draft-icon,
-.draft-list .focused .draft-icon,
-.thread-list .focused .mail-important-icon,
-.draft-list .focused .mail-important-icon {
-  -webkit-filter: none;
-}
-
-.thread-list .focused .mail-label,
-.draft-list .focused .mail-label {
-  background-color: @less-highlight !important;
-  color: @less-background !important;
-}
-
-.thread-list .list-item:hover .list-column-HoverActions .inner,
-.thread-list .list-item.focused:hover .list-column-HoverActions .inner {
-  background-image: @less-highlight;
-}
-
-.thread-list .list-item.focused:hover .list-column-HoverActions .inner .action.action-trash {
-  background: url("../static/images/thread-list-quick-actions/ic-quick-button-trash@2x.png") center no-repeat, @less-highlight;
-}
-
-.thread-list .list-item.focused:hover .list-column-HoverActions .inner .action {
-  -webkit-filter: none;
-}
-
-.empty-state .generic .message { // styles empty state message
-  font-size: 18px;
-  line-height: 1.2;
-}
-
-.empty-state .quotes img { //removes empty state background image
-  opacity: 0;
-}
-
-.thread-list.handler-split .list-item.selected .thread-icon,
-.thread-list.handler-split .list-item.selected .draft-icon,
-.thread-list.handler-split .list-item.selected .mail-important-icon {
-  -webkit-filter: none;
-}
-
-.nylas-outline-view .item .icon img {
-  display: none;
-}
-
-
-//====================================================
-//  Message List
-//====================================================
-
-#message-list {
-  background: @less-background;
-  .message-item-wrap .message-item-white-wrap,
-  .footer-reply-area-wrap {
-    box-shadow: none;
-    border-radius: 0px
-  }
-}
-
-.column-MessageList {
-  background-color: @less-background;
-  border-left: none;
-}
-
-.column-MessageListSidebar {
-  border-right: none;
-}
-
-.find-in-thread {
-  border-bottom: none;
-}
-
-.list-tabular .list-tabular-item.keyboard-cursor .list-column:first-child {
-  border-left: 0px solid @less-background;
-  padding-left: 12px;
-}
-
-.button-dropdown.bordered .primary-item,
-.button-dropdown:hover .primary-item,
-.button-dropdown.bordered .only-item,
-.button-dropdown:hover .only-item,
-.button-dropdown .secondary-picker {
-  background: @less-background;
-  box-shadow: none;
-  border-radius: 0px;
-  cursor: pointer !important;
-}
-
-
-//====================================================
-//  Message List Sidebar
-//====================================================
-
-.column-MessageListSidebar {
-  background-color: @less-background;
-  padding: 5em 1em;
-}
-
-.sidebar-section {
-  border: none;
-  border-radius: 0;
-}
-
-.related-threads {
-  background: @less-highlight;
-  border-top: none;
-  border-radius: 0;
-}
-
-.related-threads .related-thread {
-  border-top: none;
-  color: @less-text;
 }
 
 
@@ -449,9 +197,147 @@ body.is-blurred .thread-list.handler-split .list-item.selected {
 
 
 //====================================================
+//  Thread List
+//====================================================
+
+// Thread list overrides
+.column-ThreadList,
+.list-container .list-item,
+.list-container .list-item:hover {
+  cursor: pointer !important;
+  box-sizing: border-box;
+  border: 0 !important;
+  background-color: @less-background;
+  color: @less-text;
+}
+
+// Thread list padding overrides
+.column-ThreadList {
+  padding: 5em 2em 1em;
+}
+
+// Selected thread list items overrides
+body.is-blurred .list-container .list-item.focused,
+body.is-blurred .list-container .list-item.selected,
+body.is-blurred .thread-list.handler-split .list-item.selected {
+  background-color: @less-highlight;
+  color: darken(@less-text, 50%);
+  font-weight: bold;
+}
+
+// Thread list turns gray on hover
+.list-container .list-item.selected,
+.list-container .list-item:hover {
+  background: @less-highlight;
+  color: @less-text;
+}
+
+// Remove gradient on thread list during quick action hover
+.thread-list .list-item.selected:hover .list-column-HoverActions .inner,
+.thread-list .list-item:hover .list-column-HoverActions .inner {
+  background-image: -webkit-linear-gradient(left, fade(@less-highlight, 0%) 0%, @less-highlight 40%, @less-highlight 100%);
+}
+
+// Remove box-shadow on thread list quick action buttons
+.thread-injected-quick-actions .btn {
+  box-shadow: none;
+}
+
+// Remove gradients quick action buttons
+.thread-list .list-item .list-column-HoverActions .action.action-trash {
+  background: url("../static/images/thread-list-quick-actions/ic-quick-button-trash@2x.png")
+  center no-repeat, @less-highlight;
+}
+
+// Remove gradients quick action buttons
+.thread-list .list-item .list-column-HoverActions .action.action-archive {
+  background: url("../static/images/thread-list-quick-actions/ic-quick-button-archive@2x.png")
+  center no-repeat, @less-highlight;
+}
+
+// Remove gradients quick action buttons
+.thread-list .list-item .list-column-HoverActions .action.action-snooze {
+  background: url("../static/images/thread-list-quick-actions/ic-quickaction-snooze@2x.png")
+  center no-repeat, @less-highlight;
+}
+
+// Change default color of star to gray
+.thread-list .thread-icon.thread-icon-star, .draft-list .thread-icon.thread-icon-star {
+  -webkit-filter: grayscale(100%);
+}
+
+
+//====================================================
+//  Message List
+//====================================================
+
+// Remove box shadow, border-radius and background color from default message list
+#message-list {
+  background: @less-background;
+  .message-item-wrap .message-item-white-wrap,
+  .footer-reply-area-wrap {
+    box-shadow: none;
+    border-radius: 0px
+  }
+}
+
+
+//====================================================
+//  Message List Sidebar
+//====================================================
+
+// Re-center message list in sidebar with padding
+.column-MessageListSidebar {
+  padding: 5em 1em;
+}
+
+.sidebar-participant-picker {
+  padding-bottom: 50px;
+}
+
+// Remove border line surrounding on message list sidebar
+.sidebar-section {
+  border: none;
+  border-radius: 0;
+}
+
+.sidebar-section h2 {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: @sidebar-text;
+  border-bottom: none;
+}
+
+// Theme related threads tabs
+.related-threads {
+  background: transparent;
+  border-top: none;
+  border-radius: 0;
+  overflow: visible;
+}
+
+// Theme related threads tabs items
+.related-threads .related-thread {
+  border-top: none;
+  background-color: @less-highlight;
+  color: @less-text;
+  margin-bottom: 8px;
+  padding: 15px 10px;
+}
+
+// Theme related threads "Show More" label overrides
+.related-threads .toggle {
+  border-top: none;
+  color: @less-text;
+}
+
+
+//====================================================
 //  Swiping
 //====================================================
 
+// Adjust color of archive swipe to green
 .thread-list .swipe-backing.swipe-all,
 .thread-list .swipe-backing.swipe-archive,
 .draft-list .swipe-backing.swipe-all,
@@ -462,6 +348,7 @@ body.is-blurred .thread-list.handler-split .list-item.selected {
   }
 }
 
+// Adjust color of snooze swipe to yellow
 .thread-list .swipe-backing.swipe-snooze,
 .draft-list .swipe-backing.swipe-snooze {
   background: @swipe-snooze;
@@ -470,6 +357,7 @@ body.is-blurred .thread-list.handler-split .list-item.selected {
   }
 }
 
+// Adjust color of trash swipe to red
 .thread-list .swipe-backing.swipe-trash,
 .draft-list .swipe-backing.swipe-trash {
   background: @swipe-trash;
@@ -480,9 +368,10 @@ body.is-blurred .thread-list.handler-split .list-item.selected {
 
 
 //====================================================
-//  Toolbars
+//  Sheet Toolbars
 //====================================================
 
+// Correctly position and remove border on the top toolbar
 .sheet-toolbar {
   border: none;
   height: 0;
@@ -496,24 +385,9 @@ body.is-blurred .thread-list.handler-split .list-item.selected {
   }
 }
 
-.sheet-toolbar .message-toolbar-items {
-  margin-right: 11.25px;
-}
-
-.mode-toggle.mode-false .content-mask {
-  background-color: @less-text;
-}
-
-[data-reactid=".0.0.$0=2Threads=2toolbar.$1.0"] {
+// Make top toolbar mask our searchbar with white background
+.sheet-toolbar-container [data-column='0'] .item-container {
   background-color: @less-background;
-  border-bottom: none;
-}
-
-[data-reactid=".0.0.1.$=1$1=02Preferences=02toolbar"],
-[data-reactid=".0.0.1.$=1$1=02Thread=02toolbar.$0"] {
-  background-image: none;
-  background-color: @less-background;
-  min-height: 50px;
 }
 
 
@@ -521,41 +395,23 @@ body.is-blurred .thread-list.handler-split .list-item.selected {
 //  Preferences
 //====================================================
 
+// Extra padding and color adjust needed for preferences top panel
 .preferences-wrap .container-preference-tabs .preferences-tabs {
   padding-top: 40px;
   background-color: @less-background;
 }
 
+// Padding for bottom of preferences panel
 .preferences-wrap .preferences-content > .scroll-region-content {
   padding-bottom: 100px;
 }
 
-.preferences-wrap .preferences-sidebar {
-  background: @less-background;
-  border-right: none;
-  margin-left: 16px;
-  .item {
-    border-bottom: none;
-    .subitems {
-      background: @less-background;
-      box-shadow: none;
-      .subitem {
-        border-right: none;
-        border-top: none;
-        margin-left: 16px;
-      }
-    }
-  }
-  .item.active:not(.has-subitems) {
-    border-right: none;
-  }
-}
-
 
 //====================================================
-//  Form Inputs
+//  Form Inputs & Search Bar
 //====================================================
 
+// Input style overrides
 input[type="text"],
 input[type="email"],
 input[type="date"],
@@ -571,36 +427,30 @@ input[type="time"],
 input[type="url"] {
     border-radius: 0px;
     border: none !important;
-    border-bottom: 1px solid lighten(@less-text, 35%) !important;
 }
 
+// Input style overrides on hover
 textarea:focus,
 input[type="text"]:focus,
 input[type="email"]:focus,
 .search-bar .menu .header-container input:focus {
   border: none !important;
-  border-bottom: 1px solid @less-text !important;
+  border-radius: 0px;
+  border-bottom: 2px solid @less-text !important;
   box-shadow: none;
 }
 
+// Search bar overrides
 .search-bar {
+  background-color: transparent;
   width: 400px;
   margin-right: 7.5px;
 }
 
-
-//====================================================
-//  Menu Dropdowns
-//====================================================
-
-.menu .item.selected, .menu .item:active,
-.search-container .content-container .item.selected {
-  background: @less-text;
-}
-
+// Remove box-shadow on search bar
 body.is-blurred .search-bar .menu .header-container input,
 body.is-blurred .sheet-toolbar-container .btn.btn-toolbar,
-.search-bar .menu .header-container input, {
+.search-bar .menu .header-container input {
   box-shadow: none;
 }
 
@@ -609,19 +459,14 @@ body.is-blurred .sheet-toolbar-container .btn.btn-toolbar,
 //  Notifications
 //====================================================
 
-[name="Header"] {
-  z-index: 3 !important;
-  height: 0;
-}
-
 .notifications-sticky .notifications-sticky-item {
-  background-color: @less-text;
+  background-color: @close;
   line-height: 50px;
   border: none;
 }
 
 .sidebar-activity {
-  background: @less-highlight;
+  background: @less-background;
   color: @less-text;
   box-shadow: none;
 }
@@ -632,53 +477,10 @@ body.is-blurred .sheet-toolbar-container .btn.btn-toolbar,
 
 
 //====================================================
-//  Feedback Button
-//====================================================
-
-.btn-feedback {
-  background: @less-text;
-  border: none;
-  box-shadow: none;
-  cursor: pointer;
-  font-size: 16px;
-  height: 30px;
-  line-height: 30px;
-  opacity: 0.5;
-  width: 30px;
-  transition: opacity 200ms, background 200ms;
-}
-
-.btn-feedback:hover {
-  background: @less-text;
-  opacity: 1;
-}
-
-
-//====================================================
-//  Drafts
-//====================================================
-
-.list-container .list-item.selected {
-  background: fade(@less-text, 5%);
-}
-
-.list-container .list-item.selected .list-column {
-  border-bottom-color: fade(@less-text, 20%);
-}
-
-.list-tabular .list-tabular-item.selected .checkmark .inner {
-  background-color: @less-text;
-}
-
-.empty-state {
-  top: -50px;
-}
-
-
-//====================================================
 //  Composer
 //====================================================
 
+// make top of composer window uniform in color
 .sheet-toolbar-container,
 body.is-blurred .sheet-toolbar-container {
   background-color: @less-background;
@@ -686,7 +488,7 @@ body.is-blurred .sheet-toolbar-container {
   box-shadow: none;
 }
 
-
+// make bottom of composer window uniform in color
 .composer-full-window .composer-inner-wrap .composer-action-bar-wrap {
   background: @less-background;
   border-top: none;
@@ -694,12 +496,13 @@ body.is-blurred .sheet-toolbar-container {
   padding-bottom: .8em;
 }
 
+// Border at bottom of composer subject field
 .composer-inner-wrap .compose-subject-wrap {
-  border-bottom: none;
+  border-bottom: 1px solid @sidebar-text;
 }
 
 .tokenizing-field .token.invalid {
-  border: 1px solid lighten(@danger,25%);
+  border: 1px solid lighten(@close,25%);
 }
 
 .tokenizing-field .token.selected,
@@ -711,7 +514,7 @@ body.is-blurred .sheet-toolbar-container {
 
 .tokenizing-field .token.invalid.selected,
 .tokenizing-field .token.invalid.dragging {
-  background: lighten(@danger,25%);
+  background: lighten(@close,25%);
 }
 
 .tokenizing-field .tokenizing-field-input input[type="text"],
